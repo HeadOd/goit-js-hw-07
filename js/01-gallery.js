@@ -5,12 +5,12 @@ const ref = {
     gallery: document.querySelector('.gallery'),
 }
 
-// * create marcup
-const listItemsMarcup = addGalleryListMarcup(galleryItems);
+// * create markup
+const listItemsMarcup = addGalleryListMarkup(galleryItems);
 
 ref.gallery.innerHTML = listItemsMarcup;
 
-function addGalleryListMarcup(items) {
+function addGalleryListMarkup(items) {
     return items.map(item => `<div class="gallery__item">
   <a class="gallery__link" href="${item.original}">
     <img
