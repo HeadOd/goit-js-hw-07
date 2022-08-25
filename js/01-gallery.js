@@ -46,14 +46,18 @@ function selectImg(e) {
     const selectedSourse = e.target.dataset.source;
 
     instance = basicLightbox.create(`
-    <img src="${selectedSourse}" width="800" height="600">`);
+    <img src="${selectedSourse}" width="800" height="600">`, {
+        onShow: () => {
+            document.addEventListener('keydown', closeWithEscape);
+        }, onClose: () => {
+            document.removeEventListener('keydown', closeWithEscape);
+        }
+    });
 
-    instance.show() 
+    instance.show(); 
 };
 
-// * close with Escape
-document.addEventListener('keydown', closeWithEscape);
-
+// * function close with Escape
 function closeWithEscape({code}) {
     if (!document.querySelector('.basicLightbox--visible')) {
         return
